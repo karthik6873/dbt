@@ -1,0 +1,5 @@
+-- Count number of orders per product category
+SELECT p.CATEGORY, COUNT(o.ORDER_ID) AS TOTAL_ORDERS
+FROM RAW.GLBALMART.orders o
+JOIN RAW.GLBALMART.product p ON o.PRODUCT_ID = p.PRODUCT_ID
+GROUP BY p.CATEGORY;

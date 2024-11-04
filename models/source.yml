@@ -1,0 +1,25 @@
+version: 2
+
+sources:
+  - name: globalmarts
+    database: RAW
+    schema: globalmart
+    tables:
+      - name: customer
+        columns:
+          - name: CUSTOMER_ID
+            tests:
+              - unique
+              - not_null
+              - relationships:
+                  field: CUSTOMER_ID
+                  to: ref('orders')
+          - name: SEGMENT
+            tests:
+              - accepted_values:
+                  values:
+                    - "Consumer"
+                    - "Home Office"
+                    - "Corporate"    
+      - name: orders
+      - name: product

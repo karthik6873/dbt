@@ -1,1 +1,10 @@
-SELECT * FROM RAW.GLOBALMART.CUSTOMER
+{{
+    config(
+        materialized='table'
+    )
+}}
+
+SELECT 
+    *
+FROM
+    {{ source('globalmarts', 'customer') }}

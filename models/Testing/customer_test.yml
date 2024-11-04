@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: customer
+    columns:
+      - name: CUSTOMER_ID
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              field: CUSTOMER_ID
+              to: ref('orders')
+      - name: SEGMENT
+        tests:
+          - accepted_values:
+              values:
+                - "Consumer"
+                - "Home Office"
+                - "Corporate"
+              
